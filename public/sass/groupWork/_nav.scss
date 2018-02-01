@@ -1,0 +1,58 @@
+.navbar {
+  display: inline-block;
+  position: fixed;
+  height: 70px;
+  width: 100%;
+  padding: 25px 25px 0px 25px;
+  animation-duration: 1s;
+  animation-name: fadeIn;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.navbar a {
+  color: #333;
+}
+
+.navbar li {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  height: 40px;
+  font-size: 16px;
+}
+
+.navRoot {
+  display: flex;
+  flex-direction: row;
+}
+
+.navSection-left {
+  display: flex;
+  flex: 2;
+  justify-content: center;
+}
+
+.navSection-left a {
+  margin: 0 60px 0 0;
+}
+
+.navSection-logo {
+  max-width: 200px;
+  display: flex;
+  flex: 2;
+  justify-content: center;
+}
+
+.navSection-divLogo {
+  max-width: 144px;
+}
+
+.navSection-right {
+  display: flex;
+  flex: 2;
+  justify-content: center;
+}
+
+.navSection-right a {
+  margin: 0 60px 0 0;
+}
