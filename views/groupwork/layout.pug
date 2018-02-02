@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= `${title} | ${h.siteName}`
+    link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
+    link(rel='stylesheet', href='/dist/style.css')
+    link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  body
+    block header
+    .navbar
+      ul.navRoot
+        li.navSection-left
+          a(href='universities.html') UNIVERSITIES
+          a(href='#') TEAM
+          a(href='#') ABOUT
+        li.navSection-logo
+          .navSection-divLogo
+            a(href='index.html')
+              img(src=h.icon('Groupwork'), alt='')
+        li.navSection-right
+          a(href='#') CREATE ACCOUNT
+          a(href='#') SIGN IN
+
+    block messages
+      if locals.flashes
+        .inner
+          .flash-messages
+            - const categories = Object.keys(locals.flashes)
+            each category in categories
+              each message in flashes[category]
+                .flash(class=`flash--${category}`)
+                  p.flash__text!= message
+                  button.flash__remove(onClick="this.parentElement.remove()") &times;
+    .content
+      block content
+
+    block scripts
+      script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
+      script(src="/dist/App.bundle.js")
