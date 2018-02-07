@@ -1,21 +1,20 @@
 const { catchErrors } = require("../handlers/errorHandlers");
-
 const express = require("express");
 const router = express.Router();
 const storeController = require("../controllers/storeController");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 
-router.get("/", storeController.homePage);
+router.get("/", catchErrors(storeController.getStores));
+router.get("/stores", catchErrors(storeController.getStores));
 router.get("/add", authController.isLoggedIn, storeController.addStore);
+router.post("/add", catchErrors(storeController.createStore));
+router.post("/add/:id", catchErrors(storeController.updateStore));
+router.get("/stores/:id/edit", catchErrors(storeController.editStore));
 
 router.get("/login", userController.loginForm);
 router.post("/login", userController.validateEmail, authController.login);
 router.get("/register", userController.registerForm);
-
-// 1. Validate the registrarion data
-// 2. register the user
-// 3. log user in
 
 router.post(
   "/register",
