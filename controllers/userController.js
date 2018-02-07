@@ -41,7 +41,16 @@ exports.validateRegister = (req, res, next) => {
     });
     return; // stop the fn from running
   }
-  next(); // there were no erros
+  next(); // there were no errors
+};
+
+exports.validateEmail = (req, res, next) => {
+  req.sanitizeBody("email").normalizeEmail({
+    remove_dots: false,
+    remove_extension: false,
+    gmail_remove_subaddress: false
+  });
+  next();
 };
 
 exports.register = async (req, res, next) => {
@@ -49,4 +58,25 @@ exports.register = async (req, res, next) => {
   const register = promisify(User.register, User);
   await register(user, req.body.password);
   next(); // pass ro authController.login
+};
+
+exports.account = (req, res) => {
+  res.render("account", {
+    title: "Edit Your Account"
+  });
+};
+
+exports.updateAccount = async (req, res) => {
+  const updates = {
+    name: req.body.name
+    // email: req.body.email
+  };
+
+  const user = await User.findOneAndUpdate(
+    { _id: req.user._id },
+    { $set: updates },
+    { new: true, runValidators: true, context: "query" }
+  );
+
+  res.redirect("back");
 };
