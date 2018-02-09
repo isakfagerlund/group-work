@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .inner
+    h2= title
+    form.form(action=`/addDocuments` method="POST" enctype="multipart/form-data")
+      .group
+        label(for="name") Document Name
+        input(type="text" name="name")
+      .group
+        label(for="document") Document
+        input(type="file" name="document" id="document")
+      input.button(type="submit" value="Save")

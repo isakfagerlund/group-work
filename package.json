@@ -1,6 +1,6 @@
 {
-  "name": "dang-thats-delicious",
-  "version": "0.0.0",
+  "name": "group-work",
+  "version": "0.1.0",
   "private": true,
   "engines": {
     "node": ">= 7.6.0"

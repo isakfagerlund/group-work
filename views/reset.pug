@@ -4,8 +4,12 @@ block content
   .inner
     form.form(method="POST")
       h2  Reset Your Password
-      label(for="password") Password
-      input(type="password" name="password" required)
-      label(for="password-confirm") Confirm Password
-      input(type="password" name="password-confirm" required)
-      input(type="submit" value="Reset Password")
+      .group   
+        input(type="password" name="password" placeholder="New Password" required)
+        label(for="password")
+          i.fas.fa-lock
+      .group 
+        input(type="password" name="password-confirm" placeholder="Confirm New Password" required)
+        label(for="password-confirm")
+          i.fas.fa-lock
+      input.button(type="submit" value="Reset Password")

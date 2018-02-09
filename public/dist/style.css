@@ -432,22 +432,18 @@ template {
 [hidden] {
   display: none; }
 
-@font-face {
-  font-family: 'panama';
-  src: url("/fonts/panama-bold-webfont.woff2") format("woff2"), url("/fonts/panama-bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
 html {
   font-size: 10px; }
 
 body {
   font-size: 1.5rem;
-  color: #303030; }
+  color: #303030;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 5rem;
-  font-family: 'Panama';
+  font-family: 'Roboto';
   font-weight: 600;
   letter-spacing: -1px; }
 
@@ -496,29 +492,97 @@ p {
   font-size: 10rem;
   text-align: center; }
 
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #e6e6e6; }
-  input.input--error, textarea.input--error {
-    border-color: red; }
-
-label {
-  padding: 10px 0;
-  display: block; }
-
 .form {
-  background: white;
-  padding: 2rem;
-  box-shadow: linear-gradient(90deg, #32AEE3 0%, #2F80ED 100%); }
-  .form + .form {
-    margin-top: 4rem; }
-  .form h2 {
-    margin: 0;
-    font-size: 2rem;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #e6e6e6; }
+  width: 350px;
+  margin: 0 auto;
+  height: auto;
+  text-align: left;
+  font-weight: 300; }
+
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: "Roboto";
+  margin-bottom: 40px; }
+
+.form h2 {
+  text-align: center; }
+
+.form .group {
+  margin-bottom: 20px; }
+
+.form .group input {
+  position: relative;
+  background: transparent;
+  margin: 0;
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #C4C4C4;
+  z-index: 10;
+  padding-left: 38px;
+  height: 40px; }
+  .form .group input:focus {
+    outline: none; }
+
+.form input.placeholder {
+  color: #C4C4C4; }
+
+.form input:-moz-placeholder {
+  color: #C4C4C4; }
+
+.form input::-webkit-input-placeholder {
+  color: #C4C4C4; }
+
+.form input + label {
+  color: #C4C4C4;
+  -ms-transform: translate(4px, -29px);
+      transform: translate(4px, -29px);
+  transition: all 0.2s;
+  position: absolute; }
+
+.form input + label span {
+  margin-left: 20px;
+  transition: opacity 0.2s; }
+
+.form input + label i {
+  transition: color 0.2s; }
+
+.form input:focus + label i {
+  color: #2F80ED; }
+
+.form input:focus + label span {
+  opacity: 0; }
+
+.form .forgot {
+  margin-top: 33px;
+  display: inline-block;
+  width: 50%;
+  color: #C4C4C4; }
+
+.form input.button {
+  background: #2F80ED;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 25px;
+  display: inline-block;
+  width: 100%;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s; }
+  .form input.button:hover {
+    -ms-transform: scale(1.05);
+        transform: scale(1.05); }
+  .form input.button.button-half {
+    width: 50%; }
+
+.form .tags input + label {
+  color: #333;
+  position: relative;
+  -ms-transform: translate(0px, 0px);
+      transform: translate(0px, 0px); }
 
 .search {
   position: relative;
@@ -608,7 +672,7 @@ label {
   -ms-flex-align: center;
       align-items: center;
   margin-bottom: 50px;
-  padding: 0px 100px;
+  padding: 0px 50px;
   -ms-flex-pack: justify;
       justify-content: space-between;
   font-family: "Roboto"; }
@@ -631,13 +695,11 @@ label {
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: opacity, transform 0.2s;
-  display: inline-block; }
+  display: inline-block;
+  margin-left: 25px; }
   .nav-right a:hover {
-    -ms-transform: translate(0px, -3px);
-        transform: translate(0px, -3px); }
-
-.nav-right a:first-child {
-  margin-right: 25px; }
+    -ms-transform: scale(1.05);
+        transform: scale(1.05); }
 
 .nav-right a.logIn {
   color: #2F80ED;
@@ -654,6 +716,10 @@ label {
   text-align: center;
   left: 0;
   padding-top: 7px; }
+
+@media (min-width: 992px) {
+  .nav {
+    padding: 0px 100px; } }
 
 .table {
   width: 100%; }
@@ -1060,7 +1126,7 @@ label {
   border: 0;
   background: #2F80ED;
   color: white;
-  font-family: 'Panama';
+  font-family: 'Roboto';
   font-weight: 600; }
 
 .avatar {
@@ -1072,6 +1138,7 @@ label {
       align-self: center; }
 
 .card {
+  width: 900px;
   background: white;
   padding: 5rem;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15); }

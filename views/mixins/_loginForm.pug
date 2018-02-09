@@ -1,8 +1,13 @@
 mixin loginForm()
   form.form(action="/login" method="POST")
-    h2 login  
-    label(for="email") Email Address
-    input(type="email" name="email")
-    label(for="password") Password
-    input(type="password" name="password")
-    input.button(type="submit" value="Log In")
+    h2 Login
+    .group
+      input(type="email" name="email" placeholder="Email")
+      label(for="email")
+        i.fas.fa-envelope
+    .group
+      input(type="password" name="password" placeholder="Password")
+      label(for="password")
+        i.fas.fa-lock
+    a.forgot(href="/forgot") Forgot password?
+    input.button.button-half(type="submit" value="Log In")

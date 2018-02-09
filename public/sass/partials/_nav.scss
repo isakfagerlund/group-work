@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 50px;
-  padding: 0px 100px;
+  padding: 0px 50px;
   justify-content: space-between;
   font-family: "Roboto";
 }
@@ -33,15 +33,12 @@
   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
   transition: opacity, transform 0.2s;
   display: inline-block;
+  margin-left: 25px;
 
   &:hover {
-    transform: translate(0px, -3px);
+    transform: scale(1.05);
   }
 
-}
-
-.nav-right a:first-child {
-  margin-right: 25px;
 }
 
 .nav-right a.logIn {
@@ -61,4 +58,10 @@
   text-align: center;
   left: 0;
   padding-top: 7px;
+}
+
+@media (min-width: 992px) {
+  .nav {
+    padding: 0px 100px;
+  }
 }

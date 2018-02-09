@@ -2,11 +2,15 @@ const { catchErrors } = require("../handlers/errorHandlers");
 const express = require("express");
 const router = express.Router();
 const storeController = require("../controllers/storeController");
-const workController = require("../controllers/workController");
+const documentController = require("../controllers/documentController");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 
-router.get("/", catchErrors(storeController.getStores));
+router.get("/", catchErrors(documentController.getDocuments));
+router.get("/addDocuments", authController.isLoggedIn, documentController.addDocuments);
+router.post("/addDocuments", documentController.upload, catchErrors(documentController.createDocument));
+
+
 router.get("/stores", catchErrors(storeController.getStores));
 router.get("/add", authController.isLoggedIn, storeController.addStore);
 router.post(
@@ -23,11 +27,10 @@ router.post(
 );
 router.get("/stores/:id/edit", catchErrors(storeController.editStore));
 
-router.get("/addwork", authController.isLoggedIn, workController.addWork);
-
 router.get("/login", userController.loginForm);
 router.post("/login", userController.validateEmail, authController.login);
 router.get("/register", userController.registerForm);
+router.get("/forgot", userController.forgotForm);
 
 router.post(
   "/register",

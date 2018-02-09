@@ -2,15 +2,16 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 const slug = require("slugs");
 
-const workSchema = new mongoose.Schema({
+const documentsSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    required: "Please enter a work name!"
-  }
+    required: "Please enter a document name!"
+  },
+  document: String
 });
 
-workSchema.pre("save", function(next) {
+documentsSchema.pre("save", function(next) {
   if (!this.isModified("name")) {
     next(); // Skipping
     return;
@@ -18,4 +19,4 @@ workSchema.pre("save", function(next) {
   next();
 });
 
-module.exports = mongoose.model("Work", workSchema);
+module.exports = mongoose.model("Documents", documentsSchema);

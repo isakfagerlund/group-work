@@ -10,7 +10,13 @@ exports.loginForm = (req, res) => {
 
 exports.registerForm = (req, res) => {
   res.render("register", {
-    title: "Register"
+    title: "Create your account"
+  });
+};
+
+exports.forgotForm = (req, res) => {
+  res.render("forgot", {
+    title: "Forgot Password"
   });
 };
 

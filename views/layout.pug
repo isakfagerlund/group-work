@@ -3,6 +3,7 @@ html
   head
     title= `${title} | ${h.siteName}`
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:400,500,700")
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.6/css/all.css")
     link(rel='stylesheet', href='/dist/style.css')
     link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
     meta(name="viewport" content="width=device-width, initial-scale=1")
@@ -11,21 +12,19 @@ html
       header.top
         nav.nav
           .nav-left
-            li.nav__item
-                  a.nav__link(href="#")
-                    span Learn more
-            li.nav__item
-                  a.nav__link(href="#")
-                    span About us
-            li.nav__item
-                  a.nav__link(href="#")
-                    span Contact
+            each item in h.menu
+              li.nav__item
+                a.nav__link(href=item.slug)
+                  span #{item.title}
           .nav-center 
             a.nav-logo(href="/")
               != h.icon('groupwork-logo')
           .nav-right
-            a.logIn(href="/login") Login
-            a.signUp(href="/register") Sign Up
+            if user
+              a.logIn(href="/logout") Logout
+            else  
+              a.logIn(href="/login") Login
+              a.signUp(href="/register") Sign Up
 
     block messages
       if locals.flashes

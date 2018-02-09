@@ -7,7 +7,7 @@
   border: 0;
   background: $blue;
   color: white;
-  font-family: 'Panama';
+  font-family: 'Roboto';
   font-weight: 600;
 }
 
@@ -19,6 +19,7 @@
 }
 
 .card {
+  width: 900px;
   background: white;
   padding: 5rem;
   box-shadow: 0 1px 10px rgba(0,0,0,0.15);

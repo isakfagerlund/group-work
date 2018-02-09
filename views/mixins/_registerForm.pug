@@ -1,13 +1,21 @@
 mixin registerForm()
   form.form(action="/register" method="POST")
-    h2 Register  
-    label(for="name") Name
-    input(type="text" name="name" )
-    label(for="email") Email
-    input(type="email" name="email" )
-    label(for="password") Password
-    input(type="password" name="password" ruired)
-    label(for="password-confirm") Confirm Password
-    input(type="password" name="password-confirm" )
+    h2 Create your account  
+    .group   
+      input(type="text" name="name" placeholder="Name")
+      label(for="name")
+        i.fas.fa-user
+    .group
+      input(type="email" name="email" placeholder="Email")
+      label(for="email")
+        i.fas.fa-envelope
+    .group
+      input(type="password" name="password" placeholder="Password" required)
+      label(for="password")
+        i.fas.fa-lock
+    .group
+      input(type="password" name="password-confirm" placeholder="Confirm Password" required)
+      label(for="password-confirm")
+        i.fas.fa-lock
     input.button(type="submit" value="Register" )
   
