@@ -2,15 +2,28 @@ const { catchErrors } = require("../handlers/errorHandlers");
 const express = require("express");
 const router = express.Router();
 const storeController = require("../controllers/storeController");
+const workController = require("../controllers/workController");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 
 router.get("/", catchErrors(storeController.getStores));
 router.get("/stores", catchErrors(storeController.getStores));
 router.get("/add", authController.isLoggedIn, storeController.addStore);
-router.post("/add", catchErrors(storeController.createStore));
-router.post("/add/:id", catchErrors(storeController.updateStore));
+router.post(
+  "/add",
+  storeController.upload,
+  catchErrors(storeController.resize),
+  catchErrors(storeController.createStore)
+);
+router.post(
+  "/add/:id",
+  storeController.upload,
+  catchErrors(storeController.resize),
+  catchErrors(storeController.updateStore)
+);
 router.get("/stores/:id/edit", catchErrors(storeController.editStore));
+
+router.get("/addwork", authController.isLoggedIn, workController.addWork);
 
 router.get("/login", userController.loginForm);
 router.post("/login", userController.validateEmail, authController.login);
@@ -38,5 +51,7 @@ router.post(
   authController.confirmedPasswords,
   catchErrors(authController.update)
 );
+
+router.get("/store/:slug", catchErrors(storeController.getStoreBySlug));
 
 module.exports = router;

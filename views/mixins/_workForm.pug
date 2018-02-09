@@ -1,0 +1,5 @@
+mixin workForm()
+  form(action=`/add/` method="POST" class="card" enctype="multipart/form-data")
+    label(for="name") Work name
+    input(type="text" name="name")
+    input(type="submit" value="Save" class="button")
