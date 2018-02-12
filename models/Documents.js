@@ -12,12 +12,19 @@ const documentsSchema = new mongoose.Schema({
   document: String
 });
 
-documentsSchema.pre("save", function(next) {
+documentsSchema.pre("save", async function(next) {
   if (!this.isModified("name")) {
     next(); // Skipping
     return;
   }
   this.slug = slug(this.name);
+
+  const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
+  const documentsWithSlug = await this.constructor.find({slug: slugRegEx});
+  if (documentsWithSlug.length) {
+    this.slug = `${this.slug}-${documentsWithSlug.length + 1}`;
+  }
+
   next();
 });
 

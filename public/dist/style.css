@@ -818,18 +818,20 @@ h2 {
 .document {
   display: block;
   width: 100%;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 4px; }
   .document i {
     padding-right: 10px; }
-  .document a {
+  .document span {
     text-transform: capitalize; }
-  .document:hover a, .document:hover i {
+  .document:hover span, .document:hover i {
     color: #2F80ED; }
 
 .pdf {
   overflow: hidden; }
   .pdf object {
-    margin-top: -50px;
     width: 100%;
     min-height: 80vh; }
 

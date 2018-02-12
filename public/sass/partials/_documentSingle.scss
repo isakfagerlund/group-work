@@ -2,17 +2,20 @@
   display: block;
   width: 100%;
   margin-bottom:10px;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
 
   i {
     padding-right: 10px;
   }
 
-  a {
+  span {
     text-transform: capitalize;
   }
 
   &:hover {
-    a, i {
+    span, i {
       color: $blue;
     }
   }
@@ -21,7 +24,6 @@
 .pdf {
   overflow: hidden;
   object {
-    margin-top: -50px;
     width: 100%;
     min-height: 80vh;
   }
