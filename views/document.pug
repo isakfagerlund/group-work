@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  .inner
+    h2= document.name
+    .pdf
+      object(data=`/uploads/documents/${document.document}` type="application/pdf")

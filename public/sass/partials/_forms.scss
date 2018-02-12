@@ -70,6 +70,11 @@ h2 {
   opacity:0;
 }
 
+.form input[type="file"] {
+  padding-left: 0;
+  padding-top: 6px;
+}
+
 .form .forgot {
   margin-top:33px;
   display:inline-block;

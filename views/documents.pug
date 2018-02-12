@@ -1,6 +1,10 @@
 extend layout
 
+include mixins/_documentLink
 
 block content
   .inner
     h2= title
+    .documents
+      each document in documents
+        +documentLink(document)

@@ -1,0 +1,28 @@
+.document {
+  display: block;
+  width: 100%;
+  margin-bottom:10px;
+
+  i {
+    padding-right: 10px;
+  }
+
+  a {
+    text-transform: capitalize;
+  }
+
+  &:hover {
+    a, i {
+      color: $blue;
+    }
+  }
+}
+
+.pdf {
+  overflow: hidden;
+  object {
+    margin-top: -50px;
+    width: 100%;
+    min-height: 80vh;
+  }
+}

@@ -9,7 +9,7 @@ const authController = require("../controllers/authController");
 router.get("/", catchErrors(documentController.getDocuments));
 router.get("/addDocuments", authController.isLoggedIn, documentController.addDocuments);
 router.post("/addDocuments", documentController.upload, catchErrors(documentController.createDocument));
-
+router.get("/documents/:slug", catchErrors(documentController.getDocumentBySlug));
 
 router.get("/stores", catchErrors(storeController.getStores));
 router.get("/add", authController.isLoggedIn, storeController.addStore);

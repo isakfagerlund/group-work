@@ -21,6 +21,7 @@ html
               != h.icon('groupwork-logo')
           .nav-right
             if user
+              a.signUp(href="/addDocuments") Add
               a.logIn(href="/logout") Logout
             else  
               a.logIn(href="/login") Login

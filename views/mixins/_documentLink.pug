@@ -1,0 +1,4 @@
+mixin documentLink(document = {})
+  .document
+    i.fas.fa-file-pdf 
+    a(href=`/documents/${document.slug}`)= document.name
