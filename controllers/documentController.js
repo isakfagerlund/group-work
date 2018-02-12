@@ -38,7 +38,9 @@ exports.upload = multer({ storage }).single("document")
 
 exports.createDocument = async (req, res) => {
   // Add file path
-  req.body.document = req.file.filename;
+  if(req.file){
+    req.body.document = req.file.filename;
+  } 
   const documents = new Documents(req.body);
   await documents.save();
   req.flash("success", "You added a document!");

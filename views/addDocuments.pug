@@ -2,12 +2,14 @@ extends layout
 
 block content
   .inner
-    h2= title
     form.form(action=`/addDocuments` method="POST" enctype="multipart/form-data")
+      h2= title
+      .group     
+        input(type="text" name="name" placeholder="Document Name" required)
+        label(for="name")
+          i.fas.fa-file-alt
       .group
-        label(for="name") Document Name
-        input(type="text" name="name")
-      .group
-        label(for="document") Document
-        input(type="file" name="document" id="document" accept="application/pdf,application/vnd.ms-excel")
-      input.button(type="submit" value="Save")
+        input(type="file" name="document" id="document" placeholder="Document file" accept="application/pdf,application/vnd.ms-excel" required)
+        label(for="document") 
+          i.fas.fa-file-pdf
+      input.button(type="submit" value="Upload and save")

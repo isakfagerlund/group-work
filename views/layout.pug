@@ -26,6 +26,22 @@ html
             else  
               a.logIn(href="/login") Login
               a.signUp(href="/register") Sign Up
+          .hamburger
+            span
+              i.fas.fa-bars         
+        .nav-mobile
+          .nav-mobile-buttons
+            if user
+              a.signUp(href="/addDocuments") Add
+              a.logIn(href="/logout") Logout
+            else  
+              a.logIn(href="/login") Login
+              a.signUp(href="/register") Sign Up
+          .nav-mobile-links
+            each item in h.menu
+              li.nav__item
+                a.nav__link(href=item.slug)
+                  span #{item.title}
 
     block messages
       if locals.flashes

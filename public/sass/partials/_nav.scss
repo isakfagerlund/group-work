@@ -5,9 +5,27 @@
   display: flex;
   align-items: center;
   margin-bottom: 50px;
-  padding: 0px 50px;
-  justify-content: space-between;
+  padding: 2rem;
+  justify-content: flex-end;
   font-family: "Roboto";
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 50vh;
+  z-index: 10;
+}
+
+.hamburger {
+  font-size: 2rem;
+  color: $blue;
 }
 
 .nav li {
@@ -16,18 +34,25 @@
 }
 
 .nav-left, .nav-right {
+  display: none;
   z-index: 10;
 }
 
 .nav-left a {
   padding: 10px 50px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $blue;
+  }
+
 }
 
 .nav-left a:first-child {
   padding: 10px 50px 10px 0px;
 }
 
-.nav-right a {
+.nav-right a, .nav-mobile-buttons a {
   padding: 10px 25px;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
@@ -41,12 +66,12 @@
 
 }
 
-.nav-right a.logIn {
+.nav-right a.logIn, .nav-mobile-buttons a.logIn {
   color: #2F80ED;
   border-color: #E0E0E0;
 }
 
-.nav-right a.signUp {
+.nav-right a.signUp, .nav-mobile-buttons a.signUp {
   color: white;
   background: #2F80ED;
   border-color: #2F80ED;
@@ -63,5 +88,16 @@
 @media (min-width: 992px) {
   .nav {
     padding: 0px 100px;
+    justify-content: space-between;
   }
+
+  .nav-left, .nav-right {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
 }
+
