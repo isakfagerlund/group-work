@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -127,18 +127,45 @@ exports.$$ = $$;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(2);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function popupMenu() {
+  var popup = document.getElementById("popup");
+  var hamburger = document.getElementById("hamburger");
+  var closePopup = document.getElementById("popupClose");
+
+  // Open menu
+  hamburger.onclick = function () {
+    popup.classList.add("showPopup");
+  };
+  // Close Menu
+  closePopup.onclick = function () {
+    popup.classList.remove("showPopup");
+  };
+};
+
+exports.default = popupMenu;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(3);
 
 var _bling = __webpack_require__(1);
 
@@ -146,8 +173,13 @@ var _autocomplete = __webpack_require__(0);
 
 var _autocomplete2 = _interopRequireDefault(_autocomplete);
 
+var _mobileMenu = __webpack_require__(2);
+
+var _mobileMenu2 = _interopRequireDefault(_mobileMenu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+(0, _mobileMenu2.default)();
 (0, _autocomplete2.default)((0, _bling.$)("#address"), (0, _bling.$)("#lat"), (0, _bling.$)("#lng"));
 
 /***/ })

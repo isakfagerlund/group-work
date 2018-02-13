@@ -26,22 +26,29 @@ html
             else  
               a.logIn(href="/login") Login
               a.signUp(href="/register") Sign Up
-          .hamburger
+          .hamburger#hamburger
             span
               i.fas.fa-bars         
-        .nav-mobile
-          .nav-mobile-buttons
-            if user
-              a.signUp(href="/addDocuments") Add
-              a.logIn(href="/logout") Logout
-            else  
-              a.logIn(href="/login") Login
-              a.signUp(href="/register") Sign Up
+        .nav-mobile#popup
+          .nav-mobile-close#popupClose
+            i.fas.fa-times-circle
           .nav-mobile-links
             each item in h.menu
               li.nav__item
                 a.nav__link(href=item.slug)
                   span #{item.title}
+          .nav-mobile-buttons
+            if user
+              a(href="/addDocuments") Add
+                i.fas.fa-caret-right
+              a(href="/logout") Logout
+                i.fas.fa-caret-right
+            else  
+              a(href="/login") Login
+                i.fas.fa-caret-right
+              a(href="/register") Sign Up 
+                i.fas.fa-caret-right
+
 
     block messages
       if locals.flashes
