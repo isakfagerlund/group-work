@@ -557,6 +557,10 @@ h2 {
 .form input[type="file"] {
   padding-top: 6px; }
 
+.form select {
+  width: 100%;
+  height: 30px; }
+
 .form .forgot {
   margin-top: 33px;
   display: inline-block;

@@ -6,7 +6,12 @@ const documentController = require("../controllers/documentController");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 
-router.get("/", catchErrors(documentController.getDocuments));
+router.get("/", (req, res) => {
+  res.render("start", {
+    title: "Homepage"
+  });
+});
+router.get("/documents", catchErrors(documentController.getDocuments));
 router.get("/addDocuments", authController.isLoggedIn, documentController.addDocuments);
 router.post("/addDocuments", documentController.upload, catchErrors(documentController.createDocument));
 router.get("/documents/:slug", authController.isLoggedIn, catchErrors(documentController.getDocumentBySlug));

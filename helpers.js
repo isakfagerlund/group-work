@@ -24,7 +24,7 @@ exports.icon = name => fs.readFileSync(`./public/images/icons/${name}.svg`);
 exports.siteName = `Group Work`;
 
 exports.menu = [
-  { slug: "/more", title: "Learn more"},
+  { slug: "/documents", title: "Documents"},
   { slug: "/about", title: "About us"},
   { slug: "/contact", title: "Contact"},
 ];

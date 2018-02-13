@@ -8,6 +8,9 @@ const documentsSchema = new mongoose.Schema({
     trim: true,
     required: "Please enter a document name!"
   },
+  school: String,
+  program: String,
+  course: String,
   slug: String,
   document: String
 });
