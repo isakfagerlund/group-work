@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Documents = mongoose.model("Documents");
+const Schools = mongoose.model("Schools");
 const crypto = require("crypto");
 var path = require('path');
 const multer = require("multer");
@@ -23,11 +24,14 @@ var storage = multer.diskStorage({
   }
 })
 
-exports.addDocuments = (req, res) => {
+exports.addDocuments = async (req, res) => {
+  const schools = await Schools.find();
   res.render("addDocuments", {
-    title: "Add documents"
+    title: "Add documents",
+    schools
   });
 };
+
 
 exports.getDocuments = async (req, res) => {
   const documents = await Documents.find();

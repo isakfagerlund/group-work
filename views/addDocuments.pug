@@ -12,14 +12,13 @@ block content
         input(type="file" name="document" id="document" placeholder="Document file" accept="application/pdf,application/vnd.ms-excel" required)
         label(for="document") 
           i.fas.fa-file-pdf
-      - const schools = ["Jönköping University", "Chalmers", "Kungliga Tekniska"]
       - const programs = ["Civilekonom", "Industriellekonomi", "Maskiningengör"]
       - const courses = ["Nationalekonomi 1", "Marknadsföring", "Ledarskap 1"]
       .group
         select(name="school")
           option(value="" disabled selected) Select your option
           each school in schools
-            option(value=school) #{school}
+            option(value=school._id) #{school.name}
       .group
         select(name="program")
           option(value="" disabled selected) Select your option

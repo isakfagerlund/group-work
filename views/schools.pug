@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .inner
+    h2= title
+    .schools
+      each school in schools
+        p #{school.name}

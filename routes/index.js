@@ -2,6 +2,7 @@ const { catchErrors } = require("../handlers/errorHandlers");
 const express = require("express");
 const router = express.Router();
 const storeController = require("../controllers/storeController");
+const schoolsController = require("../controllers/schoolsController");
 const documentController = require("../controllers/documentController");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
@@ -15,6 +16,8 @@ router.get("/documents", catchErrors(documentController.getDocuments));
 router.get("/addDocuments", authController.isLoggedIn, documentController.addDocuments);
 router.post("/addDocuments", documentController.upload, catchErrors(documentController.createDocument));
 router.get("/documents/:slug", authController.isLoggedIn, catchErrors(documentController.getDocumentBySlug));
+
+router.get("/schools", catchErrors(schoolsController.getSchools));
 
 router.get("/stores", catchErrors(storeController.getStores));
 router.get("/add", authController.isLoggedIn, storeController.addStore);
