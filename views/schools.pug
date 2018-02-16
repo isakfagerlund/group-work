@@ -5,4 +5,7 @@ block content
     h2= title
     .schools
       each school in schools
-        p #{school.name}
+        a(href=`/schools/${school._id}`)
+          .document
+            i.fas.fa-folder 
+            span #{school.name}

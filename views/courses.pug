@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .inner
+    h2= title
+    .programs
+      each course in courses
+        a(href=`/documents/${course._id}`)
+          .document
+            i.fas.fa-folder 
+            span #{course.name}
+          

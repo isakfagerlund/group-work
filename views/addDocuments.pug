@@ -15,18 +15,18 @@ block content
       - const programs = ["Civilekonom", "Industriellekonomi", "Maskiningengör"]
       - const courses = ["Nationalekonomi 1", "Marknadsföring", "Ledarskap 1"]
       .group
-        select(name="school")
-          option(value="" disabled selected) Select your option
+        select(name="school")#school-input
+          option(value="" disabled selected) Select School
           each school in schools
             option(value=school._id) #{school.name}
       .group
-        select(name="program")
-          option(value="" disabled selected) Select your option
-          each program in programs
-            option(value=program) #{program}
+        select(name="program" disabled)#program-input
+          option(value="" disabled selected) Select Program
+          //- each program in programs
+          //-   option(value=program) #{program}
       .group
-        select(name="course")
-          option(value="" disabled selected) Select your option
-          each course in courses
-            option(value=course) #{course}
+        select(name="course" disabled)#course-input
+          option(value="" disabled selected) Select Course
+          //- each course in courses
+          //-   option(value=course) #{course}
       input.button(type="submit" value="Upload and save")

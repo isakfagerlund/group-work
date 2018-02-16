@@ -12,12 +12,16 @@ router.get("/", (req, res) => {
     title: "Homepage"
   });
 });
-router.get("/documents", catchErrors(documentController.getDocuments));
+
+router.get("/documents", catchErrors(documentController.getSchools));
+router.get("/documents/:course", catchErrors(documentController.getDocuments));
 router.get("/addDocuments", authController.isLoggedIn, documentController.addDocuments);
 router.post("/addDocuments", documentController.upload, catchErrors(documentController.createDocument));
-router.get("/documents/:slug", authController.isLoggedIn, catchErrors(documentController.getDocumentBySlug));
+router.get("/document/:slug", authController.isLoggedIn, catchErrors(documentController.getDocumentBySlug));
 
-router.get("/schools", catchErrors(schoolsController.getSchools));
+router.get("/schools", catchErrors(documentController.getSchools));
+router.get("/schools/:school", catchErrors(documentController.getPrograms));
+router.get("/schools/:school/:program", catchErrors(documentController.getCourses));
 
 router.get("/stores", catchErrors(storeController.getStores));
 router.get("/add", authController.isLoggedIn, storeController.addStore);

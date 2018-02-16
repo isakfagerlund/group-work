@@ -26,6 +26,8 @@ require("./models/Store");
 require("./models/User");
 require("./models/Documents");
 require("./models/Schools");
+require("./models/Programs");
+require("./models/Courses");
 
 // Start our app!
 const app = require("./app");
