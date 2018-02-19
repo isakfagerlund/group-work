@@ -8,9 +8,9 @@ const documentsSchema = new mongoose.Schema({
     trim: true,
     required: "Please enter a document name!"
   },
-  school: mongoose.Schema.ObjectId,
-  program: mongoose.Schema.ObjectId,
-  course: mongoose.Schema.ObjectId,
+  school: mongoose.Schema.Types.ObjectId,
+  programs: [mongoose.Schema.Types.ObjectId],
+  course: mongoose.Schema.Types.ObjectId,
   slug: String,
   document: String
 });

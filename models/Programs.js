@@ -4,8 +4,10 @@ const slug = require("slugs");
 
 const programsSchema = new mongoose.Schema({
   name: {
-    type: String
-  }
+    type: String,
+    trim: true,
+  },
+  school: String
 });
 
 module.exports = mongoose.model("Programs", programsSchema);
