@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
+const ObjectId = require('mongoose').Types.ObjectId; 
 const Documents = mongoose.model("Documents");
 const Schools = mongoose.model("Schools");
+const Programs = mongoose.model("Programs");
+const Courses = mongoose.model("Courses");
 const crypto = require("crypto");
 var path = require('path');
 const multer = require("multer");
@@ -19,7 +22,7 @@ var storage = multer.diskStorage({
   filename: function (req, file, cb) {
     crypto.pseudoRandomBytes(16, function (err, raw) {
       if (err) return cb(err)
-      cb(null, raw.toString('hex') + file.originalname)
+      cb(null, raw.toString('hex') + file.originalname.replace(/\s+/g,''))
     })
   }
 })
@@ -32,9 +35,24 @@ exports.addDocuments = async (req, res) => {
   });
 };
 
+exports.getSchools = async (req, res) => {
+  const schools = await Schools.find();
+  res.render("schools", { title: "Schools", schools });
+};
+
+exports.getPrograms = async (req, res) => {
+  var schoolParam = req.params.school;
+  const programs = await Programs.find({ school: new ObjectId(req.params.school) });
+  res.render("programs", { title: "Programs", programs, schoolParam});
+};
+
+exports.getCourses = async (req, res) => {
+  const courses = await Courses.find({ programs: new ObjectId(req.params.program) });
+  res.render("courses", { title: "Courses", courses });
+};
 
 exports.getDocuments = async (req, res) => {
-  const documents = await Documents.find();
+  const documents = await Documents.find({ course: new ObjectId(req.params.course) });
   res.render("documents", { title: "Documents", documents });
 };
 
@@ -56,3 +74,18 @@ exports.getDocumentBySlug = async (req, res, next) => {
   if (!document) return next();
   res.render("document", { document, title: document.name });
 };
+
+exports.searchPrograms = async (req, res) => {
+  const programs = await Programs.find({
+    school: new ObjectId(req.query.id)
+  });
+  res.json(programs);
+}
+
+exports.searchCourses = async (req, res) => {
+  const courses = await Courses.find({
+    programs: new ObjectId(req.query.id)
+  });
+  res.json(courses);
+}
+

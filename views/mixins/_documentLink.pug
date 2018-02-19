@@ -1,5 +1,5 @@
 mixin documentLink(document = {})
-  a(href=`/documents/${document.slug}`)
+  a(href=`/document/${document.slug}`)
     .document
       i.fas.fa-file-pdf 
       span= document.name

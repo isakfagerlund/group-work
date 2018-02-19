@@ -4,7 +4,8 @@ const slug = require("slugs");
 
 const schoolsSchema = new mongoose.Schema({
   name: {
-    type: String
+    type: String,
+    trim: true,
   }
 });
 
