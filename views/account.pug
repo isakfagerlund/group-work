@@ -6,6 +6,7 @@ block content
     form(action="/account" method="POST")
       label(for="name") Name
       input(type="text" name="name" value=user.name)
+      p= `Avalible tokens: ${user.tokens}`
       //- label(for="email") Email Address
       //- input(type="email" name="email" value=user.email)
       input.button(type="submit" value="Update My Account")

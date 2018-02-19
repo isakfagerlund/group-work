@@ -20,6 +20,7 @@ const userSchema = new Schema({
     required: "Please supply a name",
     trim: true
   },
+  tokens: Number,
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });

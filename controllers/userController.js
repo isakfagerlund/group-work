@@ -60,7 +60,7 @@ exports.validateEmail = (req, res, next) => {
 };
 
 exports.register = async (req, res, next) => {
-  const user = new User({ email: req.body.email, name: req.body.name });
+  const user = new User({ email: req.body.email, name: req.body.name, tokens: 2 });
   const register = promisify(User.register, User);
   await register(user, req.body.password);
   next(); // pass ro authController.login

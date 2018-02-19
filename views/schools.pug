@@ -5,7 +5,7 @@ block content
     h2= title
     .schools
       each school in schools
-        a(href=`/schools/${school.name}`)
+        a(href=`/schools/${school._id}`)
           .document
-            i.fas.fa-folder 
+            i.fas.fa-graduation-cap 
             span #{school.name}

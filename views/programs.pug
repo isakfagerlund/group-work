@@ -5,7 +5,7 @@ block content
     h2= title
     .programs
       each program in programs
-        a(href=`/schools/${schoolParam}/${program.name}`)
+        a(href=`/schools/${schoolParam}/${program._id}`)
           .document
             i.fas.fa-folder 
             span #{program.name}

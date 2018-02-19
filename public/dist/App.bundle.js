@@ -75,7 +75,7 @@
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 
 /*global toString:true*/
 
@@ -394,10 +394,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(2);
+    adapter = __webpack_require__(3);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(2);
+    adapter = __webpack_require__(3);
   }
   return adapter;
 }
@@ -462,10 +462,19 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(14);
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -476,7 +485,7 @@ var settle = __webpack_require__(20);
 var buildURL = __webpack_require__(23);
 var parseHeaders = __webpack_require__(29);
 var isURLSameOrigin = __webpack_require__(27);
-var createError = __webpack_require__(5);
+var createError = __webpack_require__(6);
 var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(22);
 
 module.exports = function xhrAdapter(config) {
@@ -641,10 +650,10 @@ module.exports = function xhrAdapter(config) {
     request.send(requestData);
   });
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -670,7 +679,7 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -681,7 +690,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -704,7 +713,7 @@ module.exports = function createError(message, config, code, response) {
 };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -721,7 +730,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -914,15 +923,6 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(14);
-
-/***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -932,14 +932,37 @@ module.exports = __webpack_require__(14);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var axios = __webpack_require__(2);
+
+function selectOptionResults(array) {
+  return array.map(function (item) {
+    return "\n    <option value=\"" + item._id + "\" >" + item.name + "</option>\n    ";
+  }).join('');
+}
+
 function addDocuments(schoolInput, programInput, courseInput) {
   if (!schoolInput) return;
 
+  // get Program options
   schoolInput.onchange = function () {
+    var schoolId = this.value;
+
+    axios.get("/api/programs?id=" + schoolId).then(function (res) {
+      var options = selectOptionResults(res.data);
+      programInput.innerHTML = "<option value=\"\" disabled selected>Select Program</option>" + options;
+    });
     programInput.disabled = false;
   };
 
+  // get Course options
   programInput.onchange = function () {
+    var programId = this.value;
+
+    axios.get("/api/courses?id=" + programId).then(function (res) {
+      var options = selectOptionResults(res.data);
+      courseInput.innerHTML = "<option value=\"\" disabled selected>Select Course</option>" + options;
+    });
+
     courseInput.disabled = false;
   };
 }
@@ -1046,7 +1069,7 @@ exports.default = popupMenu;
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var Axios = __webpack_require__(16);
 var defaults = __webpack_require__(1);
 
@@ -1081,9 +1104,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(3);
+axios.Cancel = __webpack_require__(4);
 axios.CancelToken = __webpack_require__(15);
-axios.isCancel = __webpack_require__(4);
+axios.isCancel = __webpack_require__(5);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -1103,7 +1126,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(3);
+var Cancel = __webpack_require__(4);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1317,7 +1340,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(21);
-var isCancel = __webpack_require__(4);
+var isCancel = __webpack_require__(5);
 var defaults = __webpack_require__(1);
 
 /**
@@ -1407,7 +1430,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(5);
+var createError = __webpack_require__(6);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1835,7 +1858,7 @@ module.exports = function spread(callback) {
 
 __webpack_require__(13);
 
-var _axios = __webpack_require__(8);
+var _axios = __webpack_require__(2);
 
 var _axios2 = _interopRequireDefault(_axios);
 

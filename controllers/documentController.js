@@ -42,17 +42,17 @@ exports.getSchools = async (req, res) => {
 
 exports.getPrograms = async (req, res) => {
   var schoolParam = req.params.school;
-  const programs = await Programs.find({ school: req.params.school });
+  const programs = await Programs.find({ school: new ObjectId(req.params.school) });
   res.render("programs", { title: "Programs", programs, schoolParam});
 };
 
 exports.getCourses = async (req, res) => {
-  const courses = await Courses.find({ programs: req.params.program });
+  const courses = await Courses.find({ programs: new ObjectId(req.params.program) });
   res.render("courses", { title: "Courses", courses });
 };
 
 exports.getDocuments = async (req, res) => {
-  const documents = await Documents.find({ course: req.params.course });
+  const documents = await Documents.find({ course: new ObjectId(req.params.course) });
   res.render("documents", { title: "Documents", documents });
 };
 
