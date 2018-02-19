@@ -69,4 +69,8 @@ router.post(
 
 router.get("/store/:slug", catchErrors(storeController.getStoreBySlug));
 
+/* Api endpoints */
+router.get("/api/programs", catchErrors(documentController.searchPrograms));
+router.get("/api/courses", catchErrors(documentController.searchCourses));
+
 module.exports = router;

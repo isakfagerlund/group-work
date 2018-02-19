@@ -75,3 +75,17 @@ exports.getDocumentBySlug = async (req, res, next) => {
   res.render("document", { document, title: document.name });
 };
 
+exports.searchPrograms = async (req, res) => {
+  const programs = await Programs.find({
+    school: new ObjectId(req.query.id)
+  });
+  res.json(programs);
+}
+
+exports.searchCourses = async (req, res) => {
+  const courses = await Courses.find({
+    programs: new ObjectId(req.query.id)
+  });
+  res.json(courses);
+}
+

@@ -7,7 +7,7 @@ const programsSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  school: String
+  school: {type: mongoose.Schema.ObjectId, ref:"Schools"}
 });
 
 module.exports = mongoose.model("Programs", programsSchema);
