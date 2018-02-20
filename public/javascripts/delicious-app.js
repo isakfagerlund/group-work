@@ -1,5 +1,5 @@
 import "../sass/style.scss";
-import axios from 'axios';
+import axios from "axios";
 import { $, $$ } from "./modules/bling";
 import autocomplete from "./modules/autocomplete";
 import popupMenu from "./modules/mobileMenu";

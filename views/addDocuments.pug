@@ -29,4 +29,5 @@ block content
           option(value="" disabled selected) Select Course
           //- each course in courses
           //-   option(value=course) #{course}
+      p= `Uploaded by: ${user.name}`
       input.button(type="submit" value="Upload and save")
