@@ -937,7 +937,7 @@ var axios = __webpack_require__(2);
 function selectOptionResults(array) {
   return array.map(function (item) {
     return "\n    <option value=\"" + item._id + "\" >" + item.name + "</option>\n    ";
-  }).join('');
+  }).join("");
 }
 
 function addDocuments(schoolInput, programInput, courseInput) {
@@ -950,8 +950,8 @@ function addDocuments(schoolInput, programInput, courseInput) {
     axios.get("/api/programs?id=" + schoolId).then(function (res) {
       var options = selectOptionResults(res.data);
       programInput.innerHTML = "<option value=\"\" disabled selected>Select Program</option>" + options;
+      programInput.disabled = false;
     });
-    programInput.disabled = false;
   };
 
   // get Course options

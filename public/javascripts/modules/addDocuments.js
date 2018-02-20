@@ -21,8 +21,8 @@ function addDocuments(schoolInput, programInput, courseInput) {
       const options = selectOptionResults(res.data);
       programInput.innerHTML =
         `<option value="" disabled selected>Select Program</option>` + options;
+      programInput.disabled = false;
     });
-    programInput.disabled = false;
   };
 
   // get Course options
