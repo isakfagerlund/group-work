@@ -1,10 +1,9 @@
 .nav {
-  width:100%;
+  width: 100%;
   height: 70px;
   background: white;
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
   padding: 2rem;
   justify-content: flex-end;
   font-family: "Roboto";
@@ -18,19 +17,19 @@
   left: 20px;
   right: 20px;
   background: white;
-  box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1),
+    0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   height: auto;
   z-index: 10;
   transition: opacity 0.2s, transform 0.2s;
-  transform: translate(0px,-20px);
+  transform: translate(0px, -20px);
 
   &.showPopup {
     opacity: 1;
     visibility: visible;
-    transform: translate(0px,0px);
+    transform: translate(0px, 0px);
   }
-
 }
 
 .nav-mobile-links {
@@ -48,7 +47,6 @@
     padding: 10px 0px;
     display: inline-block;
   }
-
 }
 .nav-mobile-close {
   display: inline-block;
@@ -60,18 +58,17 @@
 }
 
 .nav-mobile-buttons {
-
   a {
     font-weight: bold;
     margin-left: 0;
     display: block;
     border-radius: 0;
     padding: 20px 20px;
-    background: linear-gradient(90deg, #32AEE3 0%, #2F80ED 100%);
+    background: linear-gradient(90deg, #32aee3 0%, #2f80ed 100%);
     color: white;
   }
 
-  a:nth-child(2){
+  a:nth-child(2) {
     border-radius: 0px 0px 4px 4px;
   }
 
@@ -79,7 +76,6 @@
     padding-left: 20px;
     padding-top: 1px;
   }
-
 }
 
 .hamburger {
@@ -94,7 +90,8 @@
   list-style: none;
 }
 
-.nav-left, .nav-right {
+.nav-left,
+.nav-right {
   display: none;
   z-index: 10;
 }
@@ -106,7 +103,6 @@
   &:hover {
     color: $blue;
   }
-
 }
 
 .nav-left a:first-child {
@@ -116,7 +112,7 @@
 .nav-right a {
   padding: 10px 25px;
   border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: opacity, transform 0.2s;
   display: inline-block;
   margin-left: 25px;
@@ -124,30 +120,32 @@
   &:hover {
     transform: scale(1.05);
   }
-
 }
 
-.nav-right a.logIn, .nav-mobile-buttons a.logIn {
-  color: #2F80ED;
-  border-color: #E0E0E0;
+.nav-right a.logIn,
+.nav-mobile-buttons a.logIn {
+  color: #2f80ed;
+  border-color: #e0e0e0;
 }
 
-.nav-right a.signUp, .nav-mobile-buttons a.signUp {
+.nav-right a.signUp,
+.nav-mobile-buttons a.signUp {
   color: white;
-  background: #2F80ED;
-  border-color: #2F80ED;
+  background: #2f80ed;
+  border-color: #2f80ed;
 }
 
 .nav-center {
   position: absolute;
-  width:100%;
+  width: 100%;
   text-align: center;
   left: 0;
   padding-top: 7px;
 }
 
 @media (min-width: 768px) {
-  .nav-left, .nav-right {
+  .nav-left,
+  .nav-right {
     display: block;
   }
 
@@ -161,7 +159,6 @@
   .hamburger {
     display: none;
   }
-
 }
 
 @media (min-width: 992px) {
@@ -176,6 +173,4 @@
       padding-left: 0px;
     }
   }
-
 }
-

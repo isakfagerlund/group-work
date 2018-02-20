@@ -3,7 +3,7 @@ html
   head
     title= `${title} | ${h.siteName}`
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:400,500,700")
-    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.6/css/all.css")
+    //- link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.6/css/all.css")
     link(rel='stylesheet', href='/dist/style.css')
     link(rel="shortcut icon" type="image/png" href="/images/icons/paper.png")
     meta(name="viewport" content="width=device-width, initial-scale=1")
@@ -64,5 +64,4 @@ html
       block content
 
     block scripts
-      script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
       script(src="/dist/App.bundle.js")
