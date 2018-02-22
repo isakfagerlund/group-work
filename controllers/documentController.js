@@ -68,6 +68,8 @@ exports.createDocument = async (req, res) => {
   if (req.file) {
     req.body.document = req.file.filename;
   }
+  // add author to document
+  req.body.author = req.user._id;
   const documents = new Documents(req.body);
   await documents.save();
   req.flash("success", "You added a document!");
@@ -92,4 +94,10 @@ exports.searchCourses = async (req, res) => {
     programs: new ObjectId(req.query.id)
   });
   res.json(courses);
+};
+
+exports.countDocuments = async (req, res) => {
+  const documentCount = await Documents.count();
+  const schoolCount = await Schools.count();
+  res.render("start", { documentCount, schoolCount, title: "Startpage" });
 };

@@ -1454,7 +1454,10 @@ header {
   display: inline-block;
   color: #307fed;
   border-bottom: 1px solid #235fb3;
-  padding-bottom: 2px; }
+  padding-bottom: 2px;
+  transition: border-color 0.2s; }
+  .button-link:hover {
+    border-color: rgba(35, 95, 179, 0.33); }
 
 .avatar {
   min-width: 50px;

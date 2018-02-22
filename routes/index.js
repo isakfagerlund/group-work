@@ -7,11 +7,7 @@ const documentController = require("../controllers/documentController");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 
-router.get("/", (req, res) => {
-  res.render("start", {
-    title: "Homepage"
-  });
-});
+router.get("/", catchErrors(documentController.countDocuments));
 
 router.get("/documents", catchErrors(documentController.getSchools));
 router.get("/documents/:course", catchErrors(documentController.getDocuments));

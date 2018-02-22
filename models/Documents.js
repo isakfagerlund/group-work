@@ -8,9 +8,14 @@ const documentsSchema = new mongoose.Schema({
     trim: true,
     required: "Please enter a document name!"
   },
-  school: {type: mongoose.Schema.ObjectId, ref:"Schools"},
-  programs: [{type: mongoose.Schema.ObjectId, ref:"Programs"}],
-  course: {type: mongoose.Schema.ObjectId, ref:"Courses"},
+  school: { type: mongoose.Schema.ObjectId, ref: "Schools" },
+  programs: [{ type: mongoose.Schema.ObjectId, ref: "Programs" }],
+  course: { type: mongoose.Schema.ObjectId, ref: "Courses" },
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+    required: "You must supply an author"
+  },
   slug: String,
   document: String
 });
@@ -22,8 +27,8 @@ documentsSchema.pre("save", async function(next) {
   }
   this.slug = slug(this.name);
 
-  const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
-  const documentsWithSlug = await this.constructor.find({slug: slugRegEx});
+  const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, "i");
+  const documentsWithSlug = await this.constructor.find({ slug: slugRegEx });
   if (documentsWithSlug.length) {
     this.slug = `${this.slug}-${documentsWithSlug.length + 1}`;
   }
