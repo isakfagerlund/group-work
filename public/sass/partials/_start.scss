@@ -38,9 +38,21 @@
   }
 }
 
+.intro-image {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .left-intro {
     max-width: 50%;
+  }
+
+  .intro-image {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: -230px;
+    z-index: -1;
   }
 }
 
@@ -51,5 +63,14 @@
     h2 {
       font-size: 3.5rem;
     }
+  }
+  .intro-image {
+    right: -240px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro-image {
+    right: 0;
   }
 }

@@ -1,3 +1,7 @@
+header {
+  z-index: 10;
+}
+
 .nav {
   width: 100%;
   height: 70px;
@@ -72,8 +76,8 @@
     border-radius: 0px 0px 4px 4px;
   }
 
-  i {
-    padding-left: 20px;
+  svg {
+    margin-left: 15px;
     padding-top: 1px;
   }
 }
@@ -141,6 +145,13 @@
   text-align: center;
   left: 0;
   padding-top: 7px;
+}
+
+.nav-top-line {
+  display: block;
+  background: $grad;
+  height: 10px;
+  width: 100%;
 }
 
 @media (min-width: 768px) {

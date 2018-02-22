@@ -10,13 +10,6 @@ html {
 
 body {
   background: #fff;
-  &:before {
-    content: "";
-    display: block;
-    background: $grad;
-    height: 10px;
-    width: 100%;
-  }
 }
 
 header {
@@ -33,7 +26,9 @@ header {
 }
 
 .content {
-  padding-top: 150px;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
 }
 
 .container {
@@ -46,5 +41,8 @@ header {
   .container {
     margin-left: 100px;
     margin-right: 100px;
+  }
+  .content {
+    padding-top: 150px;
   }
 }
