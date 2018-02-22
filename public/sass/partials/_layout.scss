@@ -27,22 +27,23 @@ header {
 
 .content {
   position: relative;
-  overflow: hidden;
   padding-top: 80px;
 }
 
 .container {
-  max-width: 1400px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding-top: 150px;
+  }
 }
 
 @media (min-width: 992px) {
   .container {
     margin-left: 100px;
     margin-right: 100px;
-  }
-  .content {
-    padding-top: 150px;
   }
 }

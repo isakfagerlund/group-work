@@ -23,20 +23,20 @@ header {
 
 .content {
   position: relative;
-  overflow: hidden;
   padding-top: 80px; }
 
 .container {
-  max-width: 1400px;
   margin-left: 20px;
   margin-right: 20px; }
+
+@media (min-width: 768px) {
+  .content {
+    padding-top: 150px; } }
 
 @media (min-width: 992px) {
   .container {
     margin-left: 100px;
-    margin-right: 100px; }
-  .content {
-    padding-top: 150px; } }
+    margin-right: 100px; } }
 
 html {
   box-sizing: border-box; }
@@ -481,6 +481,9 @@ p a {
 p {
   line-height: 1.5;
   font-size: 1.6rem; }
+
+#blue-text {
+  color: #2F80ED; }
 
 .title {
   word-wrap: break-word;
@@ -1111,10 +1114,83 @@ header {
     font-size: 2rem;
     color: #2F80ED; }
 
+#intro {
+  height: 100%;
+  max-height: 1080px; }
+
+#intro-steps {
+  margin-left: 0px;
+  margin-right: 0px;
+  background: #f6f9fc;
+  padding: 20px 20px; }
+
+.intro-steps-text {
+  text-align: center; }
+  .intro-steps-text h2 {
+    font-weight: 600;
+    margin-bottom: 30px; }
+
+.intro-steps-boxes {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 100px 0px;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center; }
+  .intro-steps-boxes .box {
+    text-align: center;
+    max-width: 280px; }
+  .intro-steps-boxes .box-image {
+    max-width: 200px;
+    height: 200px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    margin: 0 auto; }
+  .intro-steps-boxes .box:nth-child(1) .box-image img {
+    max-width: 100px; }
+  .intro-steps-boxes h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0px; }
+
+.intro-image-wrapper {
+  height: 100%;
+  max-height: 1080px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  overflow: hidden; }
+
 .intro-image {
   display: none; }
 
+.wavy {
+  position: absolute;
+  background: #f6f9fc;
+  width: 100%; }
+  .wavy img {
+    width: 100%;
+    display: block; }
+
+.wavy-content {
+  position: absolute;
+  top: 200px;
+  width: 100%;
+  text-align: center; }
+  .wavy-content h2 {
+    color: white; }
+
 @media (min-width: 768px) {
+  .intro-steps-boxes {
+    -ms-flex-direction: row;
+        flex-direction: row; }
   .left-intro {
     max-width: 50%; }
   .intro-image {
@@ -1123,7 +1199,9 @@ header {
     display: flex;
     bottom: 0;
     right: -230px;
-    z-index: -1; } }
+    z-index: -1; }
+  #intro-steps {
+    padding: 100px 100px; } }
 
 @media (min-width: 992px) {
   .left-intro {
@@ -1345,6 +1423,14 @@ header {
   color: white;
   background: #2f80ed;
   border-color: #2f80ed;
+  padding: 10px 30px;
+  border-radius: 4px; }
+
+.button-border {
+  display: inline-block;
+  color: white;
+  background: transparent;
+  border: 1px solid white;
   padding: 10px 30px;
   border-radius: 4px; }
 
