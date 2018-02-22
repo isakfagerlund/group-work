@@ -656,6 +656,12 @@ h2 {
   100% {
     transform: translateX(0px); } }
 
+.flash-messages {
+  -ms-transform: translate(0px, 100px);
+      transform: translate(0px, 100px);
+  position: relative;
+  z-index: 99; }
+
 .flash {
   background: white;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
@@ -666,7 +672,7 @@ h2 {
   border-radius: 4px;
   display: -ms-flexbox;
   display: flex;
-  animation: slideIn forwards .1s ease-in-out 2;
+  animation: slideIn forwards 0.1s ease-in-out 2;
   animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1); }
   .flash + .flash {
     animation-delay: 0.55s; }
@@ -681,7 +687,7 @@ h2 {
     .flash__remove:hover {
       color: #FFC40E; }
   .flash:after {
-    content: '';
+    content: "";
     display: block;
     background: white;
     position: absolute;
@@ -692,11 +698,11 @@ h2 {
     z-index: -1;
     border-radius: 4px; }
   .flash--success {
-    background: linear-gradient(135deg, #8EED2F 0%, #A5EB60 100%); }
+    background: linear-gradient(135deg, #8eed2f 0%, #a5eb60 100%); }
   .flash--error {
-    background: linear-gradient(20deg, #ED2F2F 0%, #FF6363 100%); }
+    background: linear-gradient(20deg, #ed2f2f 0%, #ff6363 100%); }
   .flash--info {
-    background: linear-gradient(35deg, #EDE52F 0%, #F7E68B 100%); }
+    background: linear-gradient(35deg, #ede52f 0%, #f7e68b 100%); }
   .flash p {
     margin: 0; }
 
@@ -1166,6 +1172,7 @@ header {
   width: 100%;
   position: absolute;
   top: 0;
+  z-index: -1;
   overflow: hidden; }
 
 .intro-image {
@@ -1424,15 +1431,24 @@ header {
   background: #2f80ed;
   border-color: #2f80ed;
   padding: 10px 30px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
+  .button-blue:hover {
+    -ms-transform: scale(1.05);
+        transform: scale(1.05); }
 
 .button-border {
   display: inline-block;
   color: white;
   background: transparent;
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 10px 30px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s; }
+  .button-border:hover {
+    background: white;
+    color: #2F80ED; }
 
 .button-link {
   display: inline-block;
