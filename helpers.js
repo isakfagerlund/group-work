@@ -36,3 +36,7 @@ exports.menuOld = [
   { slug: "/add", title: "Add", icon: "add" },
   { slug: "/map", title: "Map", icon: "map" }
 ];
+
+const fontawesome = require("@fortawesome/fontawesome");
+const faUser = require("@fortawesome/fontawesome-free-solid/faUser");
+exports.testing = faUser;
