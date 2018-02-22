@@ -9,7 +9,7 @@ var path = require("path");
 const multer = require("multer");
 
 var storage = multer.diskStorage({
-  destination: "./public/uploads/documents/",
+  destination: process.env.UPLOAD_DESTINATION,
   fileFilter(req, file, next) {
     const isPdf = file.mimetype.startsWith("application/");
     if (isPdf) {
