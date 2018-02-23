@@ -81,8 +81,8 @@ exports.getDocumentBySlug = async (req, res, next) => {
   const document = await Documents.findOne({ slug: req.params.slug });
   if (!document) return next();
   // check if user ownes document
-  var ownerCheck = doc => {
-    return _.isEqual(document._id, doc);
+  var ownerCheck = userdoc => {
+    return _.isEqual(document._id, userdoc);
   };
 
   const ownerStatus = req.user.documents.some(ownerCheck);
