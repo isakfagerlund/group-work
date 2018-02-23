@@ -21,7 +21,7 @@ html
               != h.icon('groupwork-logo')
           .nav-right
             if user
-              a.signUp(href="/addDocuments") Add
+              a.signUp(href="/addDocuments") Upload
               a.logIn(href="/logout") Logout
             else  
               a.logIn(href="/login") Login
@@ -39,7 +39,7 @@ html
                   span #{item.title}
           .nav-mobile-buttons
             if user
-              a(href="/addDocuments") Add
+              a(href="/addDocuments") Upload
                 i.fas.fa-caret-right
               a(href="/logout") Logout
                 i.fas.fa-caret-right

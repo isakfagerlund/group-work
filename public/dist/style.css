@@ -572,13 +572,13 @@ h2 {
   margin-left: 20px;
   transition: opacity 0.2s; }
 
-.form input + label i {
+.form input + label svg {
   transition: color 0.2s; }
 
 .form input:focus {
   border-color: #2F80ED; }
 
-.form input:focus + label i {
+.form input:focus + label svg {
   color: #2F80ED; }
 
 .form input:focus + label span {
@@ -971,10 +971,30 @@ header {
       color: #2F80ED; }
 
 .pdf {
-  overflow: hidden; }
+  overflow: hidden;
+  padding-bottom: 50px; }
   .pdf object {
     width: 100%;
     min-height: 80vh; }
+
+.document-card {
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 0px 0px 4px 4px;
+  padding: 50px;
+  border-top: 2px solid #2F80ED;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06); }
+  .document-card .document-card-buttons {
+    text-align: right; }
+  .document-card .document-card-text {
+    margin-bottom: 20px; }
+  .document-card span {
+    color: darkgrey; }
+  .document-card h2 {
+    margin: 0;
+    margin-bottom: 5px; }
+  .document-card a {
+    margin-left: 20px; }
 
 .tags {
   margin: 0;
