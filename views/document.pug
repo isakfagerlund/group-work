@@ -13,5 +13,7 @@ block content
           span Price: 1 Token
         .document-card-buttons
           a.button-link(href="/") Go Back
-          a.button-blue(href="/account") Get document
+          form.form(action=`/document/${document.slug}` method="POST")
+            input(type="hidden" name="document" value=`${document._id}`)
+            input.button(type="submit" value="Get document")
       

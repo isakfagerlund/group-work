@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const ObjectId = require("mongoose").Types.ObjectId;
 const Documents = mongoose.model("Documents");
 const Schools = mongoose.model("Schools");
+const User = mongoose.model("User");
 const Programs = mongoose.model("Programs");
 const Courses = mongoose.model("Courses");
 const crypto = require("crypto");
@@ -108,4 +109,26 @@ exports.countDocuments = async (req, res) => {
   const documentCount = await Documents.count();
   const schoolCount = await Schools.count();
   res.render("start", { documentCount, schoolCount, title: "Startpage" });
+};
+
+exports.buyDocument = async (req, res) => {
+  const updateDocuments = {
+    documents: new ObjectId(req.body.document)
+  };
+
+  const updateTokens = {
+    tokens: req.user.tokens - 1
+  };
+
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $push: updateDocuments,
+      $set: updateTokens
+    },
+    { safe: true, upsert: true, new: true, context: "query" }
+  );
+
+  req.flash("success", "You bought a document!");
+  res.redirect("/account");
 };

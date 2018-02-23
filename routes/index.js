@@ -26,6 +26,11 @@ router.get(
   authController.isLoggedIn,
   catchErrors(documentController.getDocumentBySlug)
 );
+router.post(
+  "/document/:slug",
+  catchErrors(userController.checkTokens),
+  catchErrors(documentController.buyDocument)
+);
 
 router.get("/schools", catchErrors(documentController.getSchools));
 router.get("/schools/:school", catchErrors(documentController.getPrograms));

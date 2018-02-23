@@ -95,3 +95,13 @@ exports.updateAccount = async (req, res) => {
 
   res.redirect("back");
 };
+
+exports.checkTokens = async (req, res, next) => {
+  const user = await User.findOne({ _id: req.user._id });
+  if (user.tokens > 0) {
+    next();
+    return;
+  }
+  req.flash("error", "Sorry you do not have the tokens to buy this :(");
+  res.redirect("back");
+};
