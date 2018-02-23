@@ -7,9 +7,10 @@ const Courses = mongoose.model("Courses");
 const crypto = require("crypto");
 var path = require("path");
 const multer = require("multer");
+const _ = require("lodash");
 
 var storage = multer.diskStorage({
-  destination: "./public/uploads/documents/",
+  destination: process.env.UPLOAD_DESTINATION,
   fileFilter(req, file, next) {
     const isPdf = file.mimetype.startsWith("application/");
     if (isPdf) {
@@ -68,6 +69,8 @@ exports.createDocument = async (req, res) => {
   if (req.file) {
     req.body.document = req.file.filename;
   }
+  // add author to document
+  req.body.author = req.user._id;
   const documents = new Documents(req.body);
   await documents.save();
   req.flash("success", "You added a document!");
@@ -77,7 +80,14 @@ exports.createDocument = async (req, res) => {
 exports.getDocumentBySlug = async (req, res, next) => {
   const document = await Documents.findOne({ slug: req.params.slug });
   if (!document) return next();
-  res.render("document", { document, title: document.name });
+  // check if user ownes document
+  var ownerCheck = userdoc => {
+    return _.isEqual(document._id, userdoc);
+  };
+
+  const ownerStatus = req.user.documents.some(ownerCheck);
+
+  res.render("document", { document, ownerStatus, title: document.name });
 };
 
 exports.searchPrograms = async (req, res) => {
@@ -92,4 +102,10 @@ exports.searchCourses = async (req, res) => {
     programs: new ObjectId(req.query.id)
   });
   res.json(courses);
+};
+
+exports.countDocuments = async (req, res) => {
+  const documentCount = await Documents.count();
+  const schoolCount = await Schools.count();
+  res.render("start", { documentCount, schoolCount, title: "Startpage" });
 };

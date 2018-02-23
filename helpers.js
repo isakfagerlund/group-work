@@ -26,15 +26,7 @@ exports.siteName = `Group Work`;
 exports.menu = [
   { slug: "/documents", title: "Documents" },
   { slug: "/schools", title: "Schools" },
-  { slug: "/contact", title: "Contact" }
-];
-
-exports.menuOld = [
-  { slug: "/stores", title: "Stores", icon: "store" },
-  { slug: "/tags", title: "Tags", icon: "tag" },
-  { slug: "/top", title: "Top", icon: "top" },
-  { slug: "/add", title: "Add", icon: "add" },
-  { slug: "/map", title: "Map", icon: "map" }
+  { slug: "/account", title: "Account" }
 ];
 
 const fontawesome = require("@fortawesome/fontawesome");
