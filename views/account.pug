@@ -1,12 +1,13 @@
 extends layout
 
+include mixins/_documentLink
+
 block content
   .inner
-    h2 Edit Your Account
-    form(action="/account" method="POST")
-      label(for="name") Name
-      input(type="text" name="name" value=user.name)
-      p= `Avalible tokens: ${user.tokens}`
-      //- label(for="email") Email Address
-      //- input(type="email" name="email" value=user.email)
-      input.button(type="submit" value="Update My Account")
+    h2 Account
+    p= user.name
+    p= `Avalible tokens: ${user.tokens}`
+    h2 Your documents
+    .documents
+      each document in userOwnedDocuments
+        +documentLink(document)

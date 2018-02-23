@@ -1,0 +1,180 @@
+.left-intro {
+  width: 100%;
+  max-width: 100%;
+
+  h2 {
+    color: $blue;
+    font-weight: bold;
+    line-height: 4.5rem;
+  }
+}
+
+.left-intro-buttons {
+  padding-top: 75px;
+  a {
+    margin-right: 15px;
+  }
+}
+
+.left-intro-stats {
+  display: flex;
+
+  .left-stats,
+  .right-stats {
+    padding: 10px 0px;
+  }
+
+  .left-stats {
+    border-right: 2px solid $blue;
+    margin-right: 20px;
+    padding-right: 20px;
+  }
+
+  span {
+    margin-bottom: 5px;
+    display: block;
+    font-size: 2rem;
+    color: $blue;
+  }
+}
+
+#intro {
+  height: 100%;
+  max-height: 1080px;
+}
+
+#intro-steps {
+  margin-left: 0px;
+  margin-right: 0px;
+  background: #f6f9fc;
+  padding: 20px 20px;
+}
+
+.intro-steps-text {
+  text-align: center;
+
+  h2 {
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+}
+
+.intro-steps-boxes {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  justify-content: space-between;
+  align-items: center;
+
+  .box {
+    text-align: center;
+    max-width: 280px;
+  }
+
+  .box-image {
+    max-width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .box:nth-child(1) .box-image img {
+    max-width: 100px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0px;
+  }
+}
+
+.intro-image-wrapper {
+  height: 100%;
+  max-height: 1080px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.intro-image {
+  display: none;
+}
+
+.wavy {
+  position: absolute;
+  background: #f6f9fc;
+  width: 100%;
+
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+.wavy-content {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    display: none;
+    color: white;
+  }
+}
+
+@media (min-width: 600px) {
+  .wavy-content {
+    bottom: calc(30% - 50px);
+    h2 {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .intro-steps-boxes {
+    flex-direction: row;
+    padding: 100px 0px;
+  }
+
+  .left-intro {
+    max-width: 50%;
+  }
+
+  .intro-image {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: -230px;
+    z-index: -1;
+  }
+
+  #intro-steps {
+    padding: 100px 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .left-intro {
+    max-width: 40%;
+
+    h2 {
+      font-size: 3.5rem;
+    }
+  }
+  .intro-image {
+    right: -240px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro-image {
+    right: 0;
+  }
+}

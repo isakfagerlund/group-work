@@ -20,6 +20,7 @@ const userSchema = new Schema({
     required: "Please supply a name",
     trim: true
   },
+  documents: [{ type: mongoose.Schema.ObjectId, ref: "Documents" }],
   tokens: Number,
   resetPasswordToken: String,
   resetPasswordExpires: Date

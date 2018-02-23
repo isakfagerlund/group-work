@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const Documents = mongoose.model("Documents");
 const promisify = require("es6-promisify");
 
 exports.loginForm = (req, res) => {
@@ -60,15 +61,24 @@ exports.validateEmail = (req, res, next) => {
 };
 
 exports.register = async (req, res, next) => {
-  const user = new User({ email: req.body.email, name: req.body.name, tokens: 2 });
+  const user = new User({
+    email: req.body.email,
+    name: req.body.name,
+    tokens: 2
+  });
   const register = promisify(User.register, User);
   await register(user, req.body.password);
   next(); // pass ro authController.login
 };
 
-exports.account = (req, res) => {
+exports.account = async (req, res) => {
+  const userOwnedDocuments = await Documents.find({
+    _id: { $in: req.user.documents }
+  });
+  console.log(userOwnedDocuments);
   res.render("account", {
-    title: "Edit Your Account"
+    title: "Edit Your Account",
+    userOwnedDocuments
   });
 };
 

@@ -1,23 +1,49 @@
+html,
+body,
+.content {
+  height: 100%;
+}
+
 html {
   font-size: 10px;
 }
 
 body {
-  background: $purple;
-  background:#efefef;
-  &:before {
-    content: '';
-    display: block;
-    background: $grad;
-    height: 10px;
-    width: 100%;
-  }
+  background: #fff;
+}
+
+header {
+  position: absolute;
+  width: 100%;
 }
 
 .inner {
-  max-width:900px;
+  max-width: 900px;
   margin: 0 auto;
   @media all and (max-width: 900px) {
     padding: 2rem;
+  }
+}
+
+.content {
+  position: relative;
+  padding-top: 80px;
+}
+
+.container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding-top: 150px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    margin-left: 100px;
+    margin-right: 100px;
   }
 }

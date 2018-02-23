@@ -7,21 +7,32 @@ const documentController = require("../controllers/documentController");
 const userController = require("../controllers/userController");
 const authController = require("../controllers/authController");
 
-router.get("/", (req, res) => {
-  res.render("start", {
-    title: "Homepage"
-  });
-});
+router.get("/", catchErrors(documentController.countDocuments));
 
 router.get("/documents", catchErrors(documentController.getSchools));
 router.get("/documents/:course", catchErrors(documentController.getDocuments));
-router.get("/addDocuments", authController.isLoggedIn, documentController.addDocuments);
-router.post("/addDocuments", documentController.upload, catchErrors(documentController.createDocument));
-router.get("/document/:slug", authController.isLoggedIn, catchErrors(documentController.getDocumentBySlug));
+router.get(
+  "/addDocuments",
+  authController.isLoggedIn,
+  documentController.addDocuments
+);
+router.post(
+  "/addDocuments",
+  documentController.upload,
+  catchErrors(documentController.createDocument)
+);
+router.get(
+  "/document/:slug",
+  authController.isLoggedIn,
+  catchErrors(documentController.getDocumentBySlug)
+);
 
 router.get("/schools", catchErrors(documentController.getSchools));
 router.get("/schools/:school", catchErrors(documentController.getPrograms));
-router.get("/schools/:school/:program", catchErrors(documentController.getCourses));
+router.get(
+  "/schools/:school/:program",
+  catchErrors(documentController.getCourses)
+);
 
 router.get("/stores", catchErrors(storeController.getStores));
 router.get("/add", authController.isLoggedIn, storeController.addStore);

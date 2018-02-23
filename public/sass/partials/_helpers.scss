@@ -7,22 +7,64 @@
   border: 0;
   background: $blue;
   color: white;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 600;
 }
 
+.button-blue {
+  display: inline-block;
+  color: white;
+  background: #2f80ed;
+  border-color: #2f80ed;
+  padding: 10px 30px;
+  border-radius: 4px;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.button-border {
+  display: inline-block;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  padding: 10px 30px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover {
+    background: white;
+    color: $blue;
+  }
+}
+
+.button-link {
+  display: inline-block;
+  color: #307fed;
+  border-bottom: 1px solid #235fb3;
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: rgba(35, 95, 179, 0.33);
+  }
+}
+
 .avatar {
- min-width: 50px;
- height: 50px;
- border-radius: 50%;
- align-self: center;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-self: center;
 }
 
 .card {
   width: 900px;
   background: white;
   padding: 5rem;
-  box-shadow: 0 1px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
 }
 
 pre.error {
