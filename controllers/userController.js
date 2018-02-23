@@ -75,7 +75,6 @@ exports.account = async (req, res) => {
   const userOwnedDocuments = await Documents.find({
     _id: { $in: req.user.documents }
   });
-  console.log(userOwnedDocuments);
   res.render("account", {
     title: "Edit Your Account",
     userOwnedDocuments
