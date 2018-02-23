@@ -1141,7 +1141,7 @@ header {
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  padding: 100px 0px;
+  padding: 20px 0px;
   -ms-flex-pack: justify;
       justify-content: space-between;
   -ms-flex-align: center;
@@ -1188,16 +1188,24 @@ header {
 
 .wavy-content {
   position: absolute;
-  top: 200px;
+  bottom: 25px;
   width: 100%;
   text-align: center; }
   .wavy-content h2 {
+    display: none;
     color: white; }
+
+@media (min-width: 600px) {
+  .wavy-content {
+    bottom: calc(30% - 50px); }
+    .wavy-content h2 {
+      display: block; } }
 
 @media (min-width: 768px) {
   .intro-steps-boxes {
     -ms-flex-direction: row;
-        flex-direction: row; }
+        flex-direction: row;
+    padding: 100px 0px; }
   .left-intro {
     max-width: 50%; }
   .intro-image {

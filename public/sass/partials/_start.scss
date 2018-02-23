@@ -62,7 +62,7 @@
 .intro-steps-boxes {
   display: flex;
   flex-direction: column;
-  padding: 100px 0px;
+  padding: 20px 0px;
   justify-content: space-between;
   align-items: center;
 
@@ -118,18 +118,29 @@
 
 .wavy-content {
   position: absolute;
-  top: 200px;
+  bottom: 25px;
   width: 100%;
   text-align: center;
 
   h2 {
+    display: none;
     color: white;
+  }
+}
+
+@media (min-width: 600px) {
+  .wavy-content {
+    bottom: calc(30% - 50px);
+    h2 {
+      display: block;
+    }
   }
 }
 
 @media (min-width: 768px) {
   .intro-steps-boxes {
     flex-direction: row;
+    padding: 100px 0px;
   }
 
   .left-intro {
