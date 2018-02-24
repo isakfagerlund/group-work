@@ -74,6 +74,20 @@ exports.createDocument = async (req, res) => {
   req.body.author = req.user._id;
   const documents = new Documents(req.body);
   await documents.save();
+
+  // Add tokens to user
+  const updateTokens = {
+    tokens: req.user.tokens + 5
+  };
+
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: updateTokens
+    },
+    { safe: true, upsert: true, new: true, context: "query" }
+  );
+
   req.flash("success", "You added a document!");
   res.redirect("/");
 };
