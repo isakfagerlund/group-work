@@ -25,7 +25,7 @@ exports.siteName = `Group Work`;
 
 exports.menu = [
   { slug: "/documents", title: "Documents" },
-  { slug: "/schools", title: "Schools" },
+  { slug: "/faq", title: "About & FAQ" },
   { slug: "/account", title: "Account" }
 ];
 

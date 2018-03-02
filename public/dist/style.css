@@ -485,6 +485,9 @@ p {
 #blue-text {
   color: #2F80ED; }
 
+.bold {
+  font-weight: bold; }
+
 .title {
   word-wrap: break-word;
   position: relative;
