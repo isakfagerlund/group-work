@@ -57,7 +57,7 @@ table {
 ------------------------------------- */
 .main {
   background: #fff;
-  border-top:20px solid #fff200;
+  border-top:20px solid #2F80ED;
   width: 100%; }
 
 .wrapper {
@@ -112,7 +112,7 @@ ol {
     margin-left: 5px; }
 
 a {
-  color: #fff200;
+  color: #2F80ED;
   text-decoration: underline; }
 
 /* -------------------------------------
@@ -131,10 +131,10 @@ a {
     text-align: center; }
   .btn a {
     background-color: #ffffff;
-    border: solid 1px #fff200;
+    border: solid 1px #2F80ED;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #fff200;
+    color: #2F80ED;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
@@ -145,11 +145,11 @@ a {
     text-transform: capitalize; }
 
 .btn-primary table td {
-  background-color: #fff200; }
+  background-color: #2F80ED; }
 
 .btn-primary a {
-  background-color: #fff200;
-  border-color: #fff200;
+  background-color: #2F80ED;
+  border-color: #2F80ED;
   color: #3a3a3a; }
 
 /* -------------------------------------
@@ -255,9 +255,9 @@ hr {
     line-height: inherit !important;
     text-decoration: none !important; }
   .btn-primary table td:hover {
-    background-color: #00ffde !important; }
+    background-color: #2463b6 !important; }
   .btn-primary a:hover {
-    background-color: #00ffde !important;
-    border-color: #00ffde !important; } }
+    background-color: #2463b6 !important;
+    border-color: #2463b6 !important; } }
 
 
