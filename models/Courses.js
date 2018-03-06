@@ -5,9 +5,9 @@ const slug = require("slugs");
 const coursesSchema = new mongoose.Schema({
   name: {
     type: String,
-    trim: true,
+    trim: true
   },
-  programs: [{type:mongoose.Schema.ObjectId, ref:"Programs" }]
+  programs: [{ type: mongoose.Schema.ObjectId, ref: "Programs" }]
 });
 
 module.exports = mongoose.model("Courses", coursesSchema);
