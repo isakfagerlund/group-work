@@ -11,7 +11,7 @@ const multer = require("multer");
 const _ = require("lodash");
 
 var storage = multer.diskStorage({
-  destination: process.env.UPLOAD_DESTINATION,
+  destination: "." + process.env.UPLOAD_DESTINATION,
   fileFilter(req, file, next) {
     const isPdf = file.mimetype.startsWith("application/");
     if (isPdf) {

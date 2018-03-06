@@ -5,7 +5,7 @@ block content
     if ownerStatus
       h2= document.name
       .pdf
-        object(data=`/uploads/documents/${document.document}` type="application/pdf")
+        object(data=`${process.env.DOCUMENT_DESTINATION}${document.document}` type="application/pdf")
     else 
       .document-card
         .document-card-text
