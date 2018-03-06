@@ -85,6 +85,10 @@ router.post(
 
 router.get("/store/:slug", catchErrors(storeController.getStoreBySlug));
 
+router.get("/faq", function(req, res){
+  res.render("faq")
+});
+
 /* Api endpoints */
 router.get("/api/programs", catchErrors(documentController.searchPrograms));
 router.get("/api/courses", catchErrors(documentController.searchCourses));
