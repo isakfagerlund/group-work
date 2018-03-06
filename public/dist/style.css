@@ -998,6 +998,12 @@ header {
     margin-bottom: 5px; }
   .document-card a {
     margin-left: 20px; }
+  .document-card form {
+    width: auto;
+    display: inline-block; }
+  .document-card input.button {
+    display: inline-block;
+    margin-left: 20px; }
 
 .tags {
   margin: 0;
@@ -1145,7 +1151,7 @@ header {
 
 #intro {
   height: 100%;
-  max-height: 1080px; }
+  max-height: calc(1080px - 150px); }
 
 #intro-steps {
   margin-left: 0px;
@@ -1160,6 +1166,8 @@ header {
     margin-bottom: 30px; }
 
 .intro-steps-boxes {
+  max-width: 1400px;
+  margin: 0 auto;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
